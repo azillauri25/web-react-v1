@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { Router } from '@reach/router';
+import { Router, Redirect} from '@reach/router';
 import { useSelector, useDispatch } from 'react-redux';
 
 import AssignUsers from './components/AssignUsers';
@@ -36,6 +36,10 @@ const App = () => {
   return user ? (
     <div>
       <Router>
+        <Redirect noThrow from="/" to="/masuk" />
+        ) : (
+          <Redirect noThrow from="/" to="/masuk" />
+        )
         <Welcome path="/masuk" />
         <AssignUsers path="/kirim" />
         <Preparation path="/menyiapkan-dokumen" />
